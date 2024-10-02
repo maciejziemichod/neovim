@@ -25,8 +25,9 @@ vim.schedule(function()
 end)
 
 -- Disable line wrap and set side offset
+local side_scroll_off_value = 16
 vim.opt.wrap = false
-vim.opt.sidescrolloff = 16
+vim.opt.sidescrolloff = side_scroll_off_value
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -93,6 +94,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Center the screen horizontally
+vim.keymap.set("n", "zZ", "zszH" .. side_scroll_off_value + 8 .. "zl", { desc = "Center the screen horizontally" })
+
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -120,7 +124,6 @@ require("lazy").setup({
     spec = {
         -- i've finished here
         -- TODO:
-        -- add zZ to center screen horizontally using zs + zH
         -- delete buffers from telescope buffer list
         -- make search results more readable when paths are long or preview is too indented
         -- border around floating boxes, for example "K"
