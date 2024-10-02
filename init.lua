@@ -94,8 +94,8 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Center the screen horizontally
-vim.keymap.set("n", "zZ", "zszH" .. side_scroll_off_value + 8 .. "zl", { desc = "Center the screen horizontally" })
+-- Center the screen vertically and horizontally
+vim.keymap.set("n", "zZ", "zzzszH" .. side_scroll_off_value + 8 .. "zl", { desc = "Center the screen vertically and horizontally" })
 
 --  See `:help lua-guide-autocommands`
 
