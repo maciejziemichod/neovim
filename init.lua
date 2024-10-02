@@ -24,6 +24,10 @@ vim.schedule(function()
     vim.opt.clipboard = "unnamedplus"
 end)
 
+-- Disable line wrap and set side offset
+vim.opt.wrap = false
+vim.opt.sidescrolloff = 16
+
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -61,7 +65,7 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -116,7 +120,6 @@ require("lazy").setup({
     spec = {
         -- i've finished here
         -- TODO:
-        -- some kind of timed reminder to check updates in kickstart
         -- add zZ to center screen horizontally using zs + zH
         -- delete buffers from telescope buffer list
         -- make search results more readable when paths are long or preview is too indented
@@ -143,8 +146,6 @@ require("lazy").setup({
         -- gitlab ci support
         -- better setup for my terminal, maybe bash, status etc
         -- cd alias to code directory
-        -- ability to search in hidden files too
-        -- disable line wrap
         -- keymap for entering :Ex in root
         -- write out new shortcuts, remember about https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/ (cit for html tags for example)
         -- keymap for deleting current line but keeping it and for inserting empty line below/above
