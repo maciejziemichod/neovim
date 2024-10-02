@@ -110,6 +110,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- Change comment string to "//" in php files
+vim.api.nvim_create_autocmd("FileType", {
+    desc = 'Change comment string to "//" in php files',
+    group = vim.api.nvim_create_augroup("kickstart-php-comment-string", { clear = true }),
+    pattern = "php",
+    callback = function()
+        vim.opt_local.commentstring = "// %s"
+    end,
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -168,7 +178,6 @@ require("lazy").setup({
         -- vim set paste
         -- maybe sort suggestions in php via https://github.com/hrsh7th/cmp-buffer
         -- remember previous searches maybe
-        -- comment out in php should do it via //
 
         "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
