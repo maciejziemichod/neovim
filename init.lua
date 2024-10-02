@@ -150,6 +150,7 @@ require("lazy").setup({
         -- disable format on save, learn format on keymap
         -- prettier install mason and config fix
         -- fix prettierd
+        -- update readme
         -- keymaps for moving through buffers
         -- git blame current line
         -- git file history
