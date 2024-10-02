@@ -1,3 +1,5 @@
+Made from kickstart.nvim from [this](https://github.com/nvim-lua/kickstart.nvim/tree/4120893b8a1f31a0957f2f891f7fbef73ddfb9b1) moment.
+
 # kickstart.nvim
 
 ## Introduction
