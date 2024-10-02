@@ -137,6 +137,7 @@ require("lazy").setup({
         -- delete buffers from telescope buffer list
         -- make search results more readable when paths are long or preview is too indented
         -- border around floating boxes, for example "K"
+        -- fix css lsp, sometimes has issues with tsx files
         -- nvim TODO keeps changing colors (my guess because it detects that it's not visible, but it is if the todo block is long)
         -- move some of my keymaps, for example add moving visually selected lines
         -- Keymapy czasem nie działają w Ex
@@ -535,7 +536,19 @@ require("lazy").setup({
                 -- for you, so that they are available from within Neovim.
                 local ensure_installed = vim.tbl_keys(servers or {})
                 vim.list_extend(ensure_installed, {
+                    -- fix css lsp, causes some bugs in tsx
+                    "css-lsp",
+                    "intelephense",
+                    "lua-language-server",
+                    "php-cs-fixer",
+                    "php-debug-adapter",
+                    "phpstan",
+                    "prettier",
+                    "stylelint",
+                    "stylelint-lsp",
                     "stylua", -- Used to format Lua code
+                    "tailwindcss-language-server",
+                    "typescript-language-server",
                 })
                 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
