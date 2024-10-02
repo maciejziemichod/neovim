@@ -138,7 +138,7 @@ require("lazy").setup({
         -- vim discard all changes in current file
         -- make search results more readable when paths are long or preview is too indented
         -- border around floating boxes, for example "K"
-        -- fix css lsp, sometimes has issues with tsx files
+        -- fix css lsp, sometimes has issues with tsx files - it's not css lsp but stylelint lsp causing the bug https://github.com/bmatcuk/stylelint-lsp/issues/39
         -- nvim TODO keeps changing colors (my guess because it detects that it's not visible, but it is if the todo block is long)
         -- move some of my keymaps, for example add moving visually selected lines
         -- Keymapy czasem nie działają w Ex
