@@ -116,7 +116,25 @@ require("lazy").setup({
     spec = {
         -- i've finished here
         -- TODO:
-        -- git repo for this
+        -- some kind of timed reminder to check updates in kickstart
+        -- add zZ to center screen horizontally using zs + zH
+        -- delete buffers from telescope buffer list
+        -- make search results more readable when paths are long or preview is too indented
+        -- border around floating boxes, for example "K"
+        -- nvim TODO keeps changing colors (my guess because it detects that it's not visible, but it is if the todo block is long)
+        -- move some of my keymaps, for example add moving visually selected lines
+        -- Keymapy czasem nie działają w Ex
+        -- Żeby łatwiej wyszukiwać endpointy
+        -- Mason default install
+        -- test line wrap vs nowrap
+        -- increase size of telescope window so i can see more and get the preview too, maybe decrease the font size in telescope as well, especially in text result
+        -- comment out in jsx not working
+        -- make vim TODO not require colon :
+        -- go to type when in KK or simply by the variable
+        -- disable format on save, learn format on keymap
+        -- prettier install mason and config fix
+        -- fix prettierd
+        -- keymaps for moving through buffers
         -- git blame current line
         -- git file history
         -- tsx ts files autoformat don't leave empty {} with a space inside, probably formatter doesn't respect prettier config
