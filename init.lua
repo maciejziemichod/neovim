@@ -135,6 +135,8 @@ require("lazy").setup({
         -- i've finished here
         -- TODO:
         -- delete buffers from telescope buffer list
+        -- telescope search history
+        -- dotconfig repo
         -- vim discard all changes in current file
         -- make search results more readable when paths are long or preview is too indented
         -- border around floating boxes, for example "K"
