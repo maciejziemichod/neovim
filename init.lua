@@ -135,6 +135,9 @@ require("lazy").setup({
         -- i've finished here
         -- TODO:
         -- revert change about the required () in function calls
+        -- learn about multiplexer and other wezterm features
+        -- switch to bash
+        -- update dotfiles
         -- delete buffers from telescope buffer list
         -- vim discard all changes in current file
         -- make search results more readable when paths are long or preview is too indented
