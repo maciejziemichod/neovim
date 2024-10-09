@@ -149,7 +149,6 @@ require("lazy").setup({
         -- Żeby łatwiej wyszukiwać endpointy
         -- Mason default install
         -- test line wrap vs nowrap
-        -- increase size of telescope window so i can see more and get the preview too, maybe decrease the font size in telescope as well, especially in text result
         -- comment out in jsx not working
         -- make vim TODO not require colon :
         -- go to type when in KK or simply by the variable
@@ -170,7 +169,6 @@ require("lazy").setup({
         -- write out new shortcuts, remember about https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/ (cit for html tags for example)
         -- keymap for deleting current line but keeping it and for inserting empty line below/above
         -- go through everything here
-        -- telescope
         -- harpoon
         -- lazygit (or something else?)
         -- check what else is in kickstart, what is in lazyvim, what teej and theprimeagen have
@@ -310,6 +308,20 @@ require("lazy").setup({
                     --     i = { ["<c-enter>"] = "to_fuzzy_refine" },
                     --   },
                     -- },
+                    defaults = {
+                        layout_config = {
+                            horizontal = {
+                                width = 0.99,
+                            },
+                            vertical = {
+                                height = 0.99,
+                            },
+                        },
+                        path_display = {
+                            truncate = 1,
+                            -- smart = true,
+                        },
+                    },
                     -- pickers = {}
                     extensions = {
                         ["ui-select"] = {
