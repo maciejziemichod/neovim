@@ -134,6 +134,7 @@ require("lazy").setup({
     spec = {
         -- i've finished here
         -- TODO:
+        -- keymap for horizontal telescope scrolling and toggling preview, maybe also for making the preview bigger
         -- revert change about the required () in function calls
         -- learn about multiplexer and other wezterm features
         -- switch to bash
