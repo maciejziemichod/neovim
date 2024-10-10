@@ -106,7 +106,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
     group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
     callback = function()
-        vim.highlight.on_yank({ timeout = 100 })
+        vim.highlight.on_yank { timeout = 100 }
     end,
 })
 
@@ -120,22 +120,21 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    local out = vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
     if vim.v.shell_error ~= 0 then
         error("Error cloning lazy.nvim:\n" .. out)
     end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require("lazy").setup {
     spec = {
         -- i've finished here
         -- TODO:
         -- keymap for horizontal telescope scrolling and toggling preview, maybe also for making the preview bigger
-        -- revert change about the required () in function calls
         -- learn about multiplexer and other wezterm features
         -- switch to bash
         -- update dotfiles
@@ -270,7 +269,7 @@ require("lazy").setup({
                     -- `cond` is a condition used to determine whether this plugin should be
                     -- installed and loaded.
                     cond = function()
-                        return vim.fn.executable("make") == 1
+                        return vim.fn.executable "make" == 1
                     end,
                 },
                 { "nvim-telescope/telescope-ui-select.nvim" },
@@ -300,7 +299,7 @@ require("lazy").setup({
 
                 -- [[ Configure Telescope ]]
                 -- See `:help telescope` and `:help telescope.setup()`
-                require("telescope").setup({
+                require("telescope").setup {
                     -- You can put your default mappings / updates / etc. in here
                     --  All the info you"re looking for is in `:help telescope.setup()`
                     --
@@ -329,28 +328,28 @@ require("lazy").setup({
                             require("telescope.themes").get_dropdown(),
                         },
                     },
-                })
+                }
 
                 -- Enable Telescope extensions if they are installed
                 pcall(require("telescope").load_extension, "fzf")
                 pcall(require("telescope").load_extension, "ui-select")
 
                 -- See `:help telescope.builtin`
-                local builtin = require("telescope.builtin")
-                local utils = require("telescope.utils")
+                local builtin = require "telescope.builtin"
+                local utils = require "telescope.utils"
                 vim.keymap.set("n", "<leader>sag", function()
-                    builtin.live_grep({
+                    builtin.live_grep {
                         cwd = utils.buffer_dir(),
                         additional_args = function(_)
                             return { "--hidden" }
                         end,
-                    })
+                    }
                 end, { desc = "[S]earch in [A]ll files in relative to current buffer directory by [G]rep" })
                 vim.keymap.set("n", "<leader>saf", function()
-                    builtin.find_files({
+                    builtin.find_files {
                         cwd = utils.buffer_dir(),
                         hidden = true,
-                    })
+                    }
                 end, { desc = "[S]earch [A]ll [F]iles in relative to current buffer directory" })
                 vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
                 vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
@@ -366,24 +365,24 @@ require("lazy").setup({
                 -- Slightly advanced example of overriding default behavior and theme
                 vim.keymap.set("n", "<leader>/", function()
                     -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-                    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+                    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
                         winblend = 10,
                         previewer = false,
-                    }))
+                    })
                 end, { desc = "[/] Fuzzily search in current buffer" })
 
                 -- It"s also possible to pass additional configuration options.
                 --  See `:help telescope.builtin.live_grep()` for information about particular keys
                 vim.keymap.set("n", "<leader>s/", function()
-                    builtin.live_grep({
+                    builtin.live_grep {
                         grep_open_files = true,
                         prompt_title = "Live Grep in Open Files",
-                    })
+                    }
                 end, { desc = "[S]earch [/] in Open Files" })
 
                 -- Shortcut for searching your Neovim configuration files
                 vim.keymap.set("n", "<leader>sn", function()
-                    builtin.find_files({ cwd = vim.fn.stdpath("config") })
+                    builtin.find_files { cwd = vim.fn.stdpath "config" }
                 end, { desc = "[S]earch [N]eovim files" })
             end,
         },
@@ -568,9 +567,9 @@ require("lazy").setup({
                     "tailwindcss-language-server",
                     "typescript-language-server",
                 })
-                require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+                require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
-                require("mason-lspconfig").setup({
+                require("mason-lspconfig").setup {
                     handlers = {
                         function(server_name)
                             local server = servers[server_name] or {}
@@ -581,7 +580,7 @@ require("lazy").setup({
                             require("lspconfig")[server_name].setup(server)
                         end,
                     },
-                })
+                }
             end,
         },
 
@@ -593,7 +592,7 @@ require("lazy").setup({
                 {
                     "<leader>f",
                     function()
-                        require("conform").format({ async = true, lsp_format = "fallback" })
+                        require("conform").format { async = true, lsp_format = "fallback" }
                     end,
                     mode = "",
                     desc = "[F]ormat buffer",
@@ -644,7 +643,7 @@ require("lazy").setup({
                         -- Build Step is needed for regex support in snippets.
                         -- This step is not supported in many windows environments.
                         -- Remove the below condition to re-enable on windows.
-                        if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+                        if vim.fn.has "win32" == 1 or vim.fn.executable "make" == 0 then
                             return
                         end
                         return "make install_jsregexp"
@@ -671,11 +670,11 @@ require("lazy").setup({
             },
             config = function()
                 -- See `:help cmp`
-                local cmp = require("cmp")
-                local luasnip = require("luasnip")
-                luasnip.config.setup({})
+                local cmp = require "cmp"
+                local luasnip = require "luasnip"
+                luasnip.config.setup {}
 
-                cmp.setup({
+                cmp.setup {
                     snippet = {
                         expand = function(args)
                             luasnip.lsp_expand(args.body)
@@ -687,7 +686,7 @@ require("lazy").setup({
                     -- chosen, you will need to read `:help ins-completion`
                     --
                     -- No, but seriously. Please read `:help ins-completion`, it is really good!
-                    mapping = cmp.mapping.preset.insert({
+                    mapping = cmp.mapping.preset.insert {
                         -- Select the [n]ext item
                         ["<C-n>"] = cmp.mapping.select_next_item(),
                         -- Select the [p]revious item
@@ -700,7 +699,7 @@ require("lazy").setup({
                         -- Accept ([y]es) the completion.
                         --  This will auto-import if your LSP supports it.
                         --  This will expand snippets if the LSP sent a snippet.
-                        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                        ["<C-y>"] = cmp.mapping.confirm { select = true },
 
                         -- If you prefer more traditional completion keymaps,
                         -- you can uncomment the following lines
@@ -711,7 +710,7 @@ require("lazy").setup({
                         -- Manually trigger a completion from nvim-cmp.
                         --  Generally you don"t need this, because nvim-cmp will display
                         --  completions whenever it has completion options available.
-                        ["<C-Space>"] = cmp.mapping.complete({}),
+                        ["<C-Space>"] = cmp.mapping.complete {},
 
                         -- Think of <c-l> as moving to the right of your snippet expansion.
                         --  So if you have a snippet that"s like:
@@ -734,7 +733,7 @@ require("lazy").setup({
 
                         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
                         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
-                    }),
+                    },
                     sources = {
                         {
                             name = "lazydev",
@@ -751,7 +750,7 @@ require("lazy").setup({
                         { name = "path" },
                         { name = "buffer" },
                     },
-                })
+                }
             end,
         },
         {
@@ -764,11 +763,11 @@ require("lazy").setup({
                 -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
                 -- other cool ones:
                 -- habamax
-                vim.cmd.colorscheme("nord")
+                vim.cmd.colorscheme "nord"
                 local color = "#4C566A"
                 vim.cmd.hi("TreesitterContextBottom gui=underline guisp=" .. color)
                 vim.cmd.hi("TreesitterContextLineNumberBottom gui=underline guisp=" .. color)
-                vim.cmd.hi("TreesitterContext guibg=#3B4252")
+                vim.cmd.hi "TreesitterContext guibg=#3B4252"
             end,
         },
 
@@ -956,7 +955,7 @@ require("lazy").setup({
             lazy = "💤 ",
         },
     },
-})
+}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=4 sts=4 sw=4 et
