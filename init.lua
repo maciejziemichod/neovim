@@ -135,12 +135,8 @@ require("lazy").setup {
         -- i've finished here
         -- TODO:
         -- keymap for horizontal telescope scrolling and toggling preview, maybe also for making the preview bigger
-        -- learn about multiplexer and other wezterm features
-        -- switch to bash
-        -- update dotfiles
         -- delete buffers from telescope buffer list
         -- vim discard all changes in current file
-        -- make search results more readable when paths are long or preview is too indented
         -- border around floating boxes, for example "K"
         -- fix css lsp, sometimes has issues with tsx files - it's not css lsp but stylelint lsp causing the bug https://github.com/bmatcuk/stylelint-lsp/issues/39
         -- nvim TODO keeps changing colors (my guess because it detects that it's not visible, but it is if the todo block is long)
@@ -163,9 +159,8 @@ require("lazy").setup {
         -- like i have saf and sag to search all, i want relative searches too, maybe srg and srf
         -- how to do project search and replace
         -- gitlab ci support
-        -- better setup for my terminal, maybe bash, status etc
         -- cd alias to code directory
-        -- keymap for entering :Ex in root
+        -- keymap for entering :Ex in root dir
         -- write out new shortcuts, remember about https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/ (cit for html tags for example)
         -- keymap for deleting current line but keeping it and for inserting empty line below/above
         -- go through everything here
@@ -175,11 +170,9 @@ require("lazy").setup {
         -- add descriptions to keymaps and basically everything
         -- folding, see native and treesitter module
         -- hide % of the file on the bottom right as well as the row and line count
-        -- tmux
-        -- learn full screen
         -- check out https://github.com/andymass/vim-matchup
         -- php debugging
-        -- setup for ts, js, react, python, go, symfony, laravel, c, css, scss, tailwind, html, docker, checkout extensions from vscode
+        -- setup for ts, js, react, python, go, symfony, c, css, scss, tailwind, html, docker, checkout extensions from vscode
         -- vim set paste
         -- maybe sort suggestions in php via https://github.com/hrsh7th/cmp-buffer
         -- remember previous searches maybe
