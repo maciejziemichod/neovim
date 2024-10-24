@@ -135,7 +135,6 @@ require("lazy").setup {
         -- i've finished here
         -- TODO:
         -- keymap for horizontal telescope scrolling and toggling preview, maybe also for making the preview bigger
-        -- delete buffers from telescope buffer list
         -- vim discard all changes in current file
         -- border around floating boxes, for example "K"
         -- fix css lsp, sometimes has issues with tsx files - it's not css lsp but stylelint lsp causing the bug https://github.com/bmatcuk/stylelint-lsp/issues/39
@@ -313,6 +312,11 @@ require("lazy").setup {
                         path_display = {
                             truncate = 1,
                             -- smart = true,
+                        },
+                        mappings = {
+                            n = {
+                                ["dd"] = "delete_buffer",
+                            },
                         },
                     },
                     -- pickers = {}
