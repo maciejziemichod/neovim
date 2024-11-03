@@ -135,7 +135,6 @@ require("lazy").setup {
         -- i've finished here
         -- TODO:
         -- keymap for horizontal telescope scrolling and toggling preview, maybe also for making the preview bigger
-        -- vim discard all changes in current file
         -- border around floating boxes, for example "K"
         -- fix css lsp, sometimes has issues with tsx files - it's not css lsp but stylelint lsp causing the bug https://github.com/bmatcuk/stylelint-lsp/issues/39
         -- nvim TODO keeps changing colors (my guess because it detects that it's not visible, but it is if the todo block is long)
@@ -175,6 +174,7 @@ require("lazy").setup {
         -- vim set paste
         -- maybe sort suggestions in php via https://github.com/hrsh7th/cmp-buffer
         -- remember previous searches maybe
+        -- update default mason installs
 
         "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
