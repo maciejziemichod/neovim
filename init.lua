@@ -136,7 +136,6 @@ require("lazy").setup {
         -- TODO:
         -- keymap for horizontal telescope scrolling and toggling preview, maybe also for making the preview bigger
         -- border around floating boxes, for example "K"
-        -- fix css lsp, sometimes has issues with tsx files - it's not css lsp but stylelint lsp causing the bug https://github.com/bmatcuk/stylelint-lsp/issues/39
         -- nvim TODO keeps changing colors (my guess because it detects that it's not visible, but it is if the todo block is long)
         -- move some of my keymaps, for example add moving visually selected lines
         -- Keymapy czasem nie działają w Ex
@@ -519,9 +518,17 @@ require("lazy").setup {
                     --    https://github.com/pmizio/typescript-tools.nvim
                     --
                     -- But for many setups, the LSP (`ts_ls`) will work just fine
-                    -- ts_ls = {},
-                    --
-
+                    cssls = {},
+                    intelephense = {},
+                    gopls = {},
+                    tailwindcss = {},
+                    ts_ls = {},
+                    stylelint_lsp = {
+                        filetypes = {
+                            "css",
+                            "scss",
+                        },
+                    },
                     lua_ls = {
                         -- cmd = {...},
                         -- filetypes = { ...},
@@ -550,19 +557,12 @@ require("lazy").setup {
                 -- for you, so that they are available from within Neovim.
                 local ensure_installed = vim.tbl_keys(servers or {})
                 vim.list_extend(ensure_installed, {
-                    -- fix css lsp, causes some bugs in tsx
-                    "css-lsp",
-                    "intelephense",
-                    "lua-language-server",
                     "php-cs-fixer",
                     "php-debug-adapter",
                     "phpstan",
                     "prettier",
                     "stylelint",
-                    "stylelint-lsp",
                     "stylua", -- Used to format Lua code
-                    "tailwindcss-language-server",
-                    "typescript-language-server",
                 })
                 require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
