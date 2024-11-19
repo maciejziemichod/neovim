@@ -146,13 +146,11 @@ require("lazy").setup {
         -- make vim TODO not require colon :
         -- go to type when in KK or simply by the variable
         -- disable format on save, learn format on keymap
-        -- prettier install mason and config fix
         -- fix prettierd
         -- update readme
         -- keymaps for moving through buffers
         -- git blame current line
         -- git file history
-        -- tsx ts files autoformat don't leave empty {} with a space inside, probably formatter doesn't respect prettier config
         -- like i have saf and sag to search all, i want relative searches too, maybe srg and srf
         -- how to do project search and replace
         -- gitlab ci support
@@ -625,6 +623,8 @@ require("lazy").setup {
                     javascriptreact = { "prettier", stop_after_first = true },
                     typescript = { "prettier", stop_after_first = true },
                     typescriptreact = { "prettier", stop_after_first = true },
+                    scss = { "prettier", stop_after_first = true },
+                    css = { "prettier", stop_after_first = true },
                 },
             },
         },
