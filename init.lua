@@ -172,6 +172,7 @@ require("lazy").setup {
         -- maybe sort suggestions in php via https://github.com/hrsh7th/cmp-buffer
         -- remember previous searches maybe
         -- update default mason installs
+        -- shift + tab should decrease indent
 
         "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
